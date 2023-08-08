@@ -12,9 +12,7 @@ class Data1 : Codable {
     var status : String
     var totalResults : Int
     var articles : [Articles]
-    
 }
-
 class Articles : Codable{
     var source : Source
     var author : String?
@@ -64,8 +62,6 @@ class ViewController: UIViewController {
     //
     //    }
     
-    
-    
     func getdata() {
         AF.request("https://newsapi.org/v2/everything?domains=wsj.com&apiKey=d362e37d62fb4d69b4e85609a1e7c145",method: .get).responseData { [self] respo in
             switch respo.result {
@@ -112,8 +108,6 @@ extension ViewController : UITableViewDelegate,UITableViewDataSource {
         navigation(link: obj?.articles[indexPath.row].url ?? "")
         
     }
-    
-    
     func navigation(link : String)
     {
         let a  = storyboard?.instantiateViewController(identifier: "ViewController1")as!
@@ -121,9 +115,6 @@ extension ViewController : UITableViewDelegate,UITableViewDataSource {
         a.webv = link
         navigationController?.pushViewController(a, animated: true)
     }
-    
-    
-    
     
 }
 
